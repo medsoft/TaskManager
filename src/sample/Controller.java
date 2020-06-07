@@ -101,7 +101,7 @@ public class Controller implements Initializable {
                                         main.closeStage();
                                         System.out.println("------- splash screen is closed --------");
                                         try {
-                                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../controllers/login.fxml"));
+                                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../controllers/Login.fxml"));
                                             Parent root1 = (Parent) fxmlLoader.load();
                                             Stage stage = new Stage();
                                             stage.initStyle(StageStyle.UNDECORATED);

@@ -34,6 +34,11 @@
             </ImageView>
          </children>
       </Pane>
+      <ImageView fitHeight="77.0" fitWidth="91.0" layoutX="2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../pictures/logonotif.png" />
+         </image>
+      </ImageView>
     </children>
    <effect>
       <DropShadow height="12.1" radius="5.55" width="12.1" />

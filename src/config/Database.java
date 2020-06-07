@@ -14,7 +14,7 @@ public class Database {
 
    private  void  getConnection  ()
    {
-       String url  = "jdbc:mysql://localhost:3306/taskmanager" ;
+       String url  = "jdbc:mysql://localhost:3306/task" ;
        String user  =  "root";
        String password  = "" ;
 
