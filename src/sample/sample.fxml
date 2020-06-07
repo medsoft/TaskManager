@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="rootPane" minWidth="-Infinity" prefHeight="295.0" prefWidth="456.0" style="-fx-background-color: #2d4f6c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="rootPane" minWidth="-Infinity" prefHeight="275.0" prefWidth="496.0" style="-fx-background-color: #2d4f6c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
 
     <children>
-        <Label fx:id="appName" layoutX="169.0" layoutY="156.0" text="Task Manager" textFill="WHITE">
+      <Label fx:id="logoLabel" layoutX="98.0" layoutY="37.0" prefHeight="125.0" prefWidth="300.0" text="Medsoft Task" textFill="WHITE">
+         <font>
+            <Font name="MS Outlook" size="48.0" />
+         </font>
+      </Label>
+        <Label fx:id="appName" layoutX="136.0" layoutY="204.0" prefHeight="22.0" prefWidth="218.0" style="-fx-alignment: center;" text="Task Managing Software" textFill="WHITE">
             <font>
-                <Font name="System Bold" size="18.0" />
+                <Font name="MS Outlook" size="18.0" />
             </font>
         </Label>
-        <Label fx:id="description" layoutX="74.0" layoutY="183.0" prefHeight="27.0" prefWidth="308.0" style="-fx-alignment: center;" text="Pannify your task be more productif " textAlignment="CENTER" textFill="#d9d9d9" />
-      <ImageView fx:id="logoImage" fitHeight="182.0" fitWidth="182.0" layoutX="137.0" layoutY="-26.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../pictures/logomedsoft.png" />
-         </image>
-      </ImageView>
-      <Pane fx:id="spinnerPane" layoutX="81.0" layoutY="80.0" prefHeight="76.0" prefWidth="295.0" visible="false">
+        <Label fx:id="description" layoutX="91.0" layoutY="226.0" prefHeight="27.0" prefWidth="308.0" style="-fx-alignment: center;" text="Pannify your task to be more productif " textAlignment="CENTER" textFill="#d9d9d9">
+         <font>
+            <Font name="MS Outlook" size="12.0" />
+         </font></Label>
+      <Pane fx:id="spinnerPane" layoutX="79.0" layoutY="162.0" prefHeight="42.0" prefWidth="284.0" visible="false">
          <children>
-            <Label fx:id="description1" layoutX="60.0" layoutY="49.0" prefHeight="27.0" prefWidth="175.0" style="-fx-alignment: center;" text="Un instant svp..." textAlignment="CENTER" textFill="#d9d9d9" />
-            <ImageView fx:id="loadingImage" fitHeight="11.0" fitWidth="147.0" layoutX="88.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="loadingImage" fitHeight="11.0" fitWidth="147.0" layoutX="82.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../pictures/loading2.gif" />
                </image>
@@ -32,5 +35,8 @@
          </children>
       </Pane>
     </children>
+   <effect>
+      <DropShadow height="12.1" radius="5.55" width="12.1" />
+   </effect>
 
 </AnchorPane>
