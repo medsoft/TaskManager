@@ -11,6 +11,7 @@ import tray.notification.TrayNotification;
  */
 public class NotifyMe {
     Image staff = new Image("/pictures/logonotif.png");
+
    public void errorChampsNotify() {
        TrayNotification tray = new TrayNotification();
        tray.setTitle("Informations  Task ");
@@ -27,7 +28,7 @@ public class NotifyMe {
        TrayNotification tray = new TrayNotification();
        tray.setImage(staff);
        tray.setTitle("Informations  Task");
-       tray.setMessage("Vous pouvez acceder a votre  espace");
+       tray.setMessage("Vous pouvez acceder a votre  compte");
        tray.setRectangleFill(Paint.valueOf("#2d4f6c"));
        tray.setAnimationType(AnimationType.POPUP);
        tray.showAndDismiss(Duration.seconds(3));
@@ -62,16 +63,16 @@ public class NotifyMe {
         tray.setAnimationType(AnimationType.SLIDE);
         tray.showAndDismiss(Duration.seconds(3));
     }
-    public  void whenAccountrIsAdded () {
+    public  void projectAddedSuccessfully  () {
         TrayNotification tray = new TrayNotification();
         tray.setImage(staff);
         tray.setTitle("Informations  Task ");
-        tray.setMessage(" Un nouveau  compte  vient d'etre creer  ");
+        tray.setMessage(" Un nouveau  projet  vient d'etre creer  ");
         tray.setRectangleFill(Paint.valueOf("#2d4f6c"));
-        tray.setAnimationType(AnimationType.SLIDE);
+        tray.setAnimationType(AnimationType.POPUP);
         tray.showAndDismiss(Duration.seconds(3));
     }
-    public  void whenTasksIsAdded () {
+    public  void taskAddSuccessfully () {
         TrayNotification tray = new TrayNotification();
         tray.setImage(staff);
         tray.setTitle("Informations Staff ");

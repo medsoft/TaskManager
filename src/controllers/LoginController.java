@@ -47,7 +47,7 @@ public class LoginController   implements Initializable {
     private PasswordField passwordField;
 
     @FXML
-    private Button LoginButton;
+    private Button loginButton;
     @FXML
     private ImageView loadingImage  ;
     @FXML
@@ -55,6 +55,9 @@ public class LoginController   implements Initializable {
 
     @FXML
     private Button reduceButton;
+
+    public  static User sessionID   ;
+
 
     public void reduceWindow ()
     {
@@ -81,47 +84,61 @@ public class LoginController   implements Initializable {
     /*
     Login functionnality
      */
-    public void login (ActionEvent event){
+    public void login (){
 
-        loadingImage.setVisible(true);
-        String username =  usernameField.getText() ;
-        String password = passwordField.getText();
-        PauseTransition pauseTransition = new PauseTransition();
-        pauseTransition.setDuration(Duration.seconds(6));
-        pauseTransition.setOnFinished(ev ->{
-            if(username.trim().equals("") || password.trim().equals("")){
-                NotifyMe notifyMe =  new NotifyMe() ;
-                notifyMe.errorChampsNotify();
-                loadingImage.setVisible(false);
-            }else{
-                IuserDao iuserDao = new IuserDao () ;
-                User user = iuserDao.getLogin(username  , password);
-                if (user != null) {
-                    NotifyMe notifyMe = new NotifyMe() ;
-                    notifyMe.access();
-                    try {
-                        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("board.fxml"));
-                        Parent root = null;
-                        root = (Parent) fxmlLoader.load();
-                        Stage stage = new Stage();
-                        stage.initStyle(StageStyle.UNDECORATED);
-                        stage.setScene(new Scene(root));
-                        stage.show();
+        loginButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                loadingImage.setVisible(true);
+                String username =  usernameField.getText() ;
+                String password = passwordField.getText();
+                PauseTransition pauseTransition = new PauseTransition();
+                pauseTransition.setDuration(Duration.seconds(6));
+                pauseTransition.setOnFinished(ev ->{
+                    if(username.trim().equals("") || password.trim().equals("")){
+                        NotifyMe notifyMe =  new NotifyMe() ;
+                        notifyMe.errorChampsNotify();
                         loadingImage.setVisible(false);
-                        ((Node) (event.getSource())).getScene().getWindow().hide();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    }else{
+                        IuserDao iuserDao = new IuserDao () ;
+                        User user = iuserDao.getLogin(username  , password);
+                        if (user != null) {
+                            NotifyMe notifyMe = new NotifyMe() ;
+                            notifyMe.access();
+                            sessionID = user;
+                            try {
+                                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("board.fxml"));
+                                Parent root = null;
+                                root = (Parent) fxmlLoader.load();
+                                Stage stage = new Stage();
+                                stage.initStyle(StageStyle.UNDECORATED);
+                                stage.setScene(new Scene(root));
+                                stage.show();
+                                loadingImage.setVisible(false);
+                                ((Node) (event.getSource())).getScene().getWindow().hide();
+
+                                BoardController  boardController = fxmlLoader.getController() ;
+                                boardController.setNameOfUser(user.getUsername());
+
+                                TaskController taskController = fxmlLoader.getController() ;
+                                taskController.setNameOfUserInTask(user.getUsername());
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }else {
+                            NotifyMe notifyMe = new NotifyMe() ;
+                            notifyMe.mauvaisIdentifiants();
+                            loadingImage.setVisible(false);
+                        }
                     }
 
-                }else {
-                    NotifyMe notifyMe = new NotifyMe() ;
-                    notifyMe.mauvaisIdentifiants();
-                    loadingImage.setVisible(false);
-                }
-            }
+                });
+                pauseTransition.play();
 
+            }
         });
-        pauseTransition.play();
 
     }
 
@@ -129,7 +146,6 @@ public class LoginController   implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     loadingImage.setVisible(false);
-
 
     }
 }

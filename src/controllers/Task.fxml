@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="boardAnchorpane" prefHeight="715.0" prefWidth="1182.0" style="-fx-background-color: #2d4f6c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.BoardController">
+<AnchorPane fx:id="boardAnchorpane" prefHeight="715.0" prefWidth="1182.0" style="-fx-background-color: #2d4f6c;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TaskController">
    <children>
       <ImageView fx:id="loading" fitHeight="11.0" fitWidth="183.0" layoutX="1029.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -42,7 +42,7 @@
             <Insets left="5.0" right="5.0" />
          </padding>
       </JFXButton>
-      <JFXButton fx:id="taskButton" layoutX="209.0" layoutY="22.0" onAction="#openTask" text="Tasks" textFill="#9bacbf">
+      <JFXButton fx:id="taskButton" layoutX="209.0" layoutY="22.0" text="Tasks" textFill="#9bacbf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -58,7 +58,7 @@
             <Insets left="5.0" right="5.0" />
          </padding>
       </JFXButton>
-      <JFXButton fx:id="create" layoutX="359.0" layoutY="18.0" onAction="#createProject" prefHeight="25.0" prefWidth="87.0" text="create" textFill="#9bacbf">
+      <JFXButton fx:id="create" layoutX="359.0" layoutY="18.0"  prefHeight="25.0" prefWidth="87.0" text="create" textFill="#9bacbf">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -104,7 +104,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <JFXButton fx:id="refreshButton" layoutX="796.0" layoutY="13.0" onAction="#refresh" prefHeight="30.0" prefWidth="41.0" text=" " />
+      <JFXButton fx:id="refreshButton" layoutX="796.0" layoutY="13.0" prefHeight="30.0" prefWidth="41.0" text=" " />
       <JFXButton fx:id="notificationButton" layoutX="841.0" layoutY="15.0" prefHeight="30.0" prefWidth="41.0" text=" " />
       <JFXButton fx:id="settingsButton" layoutX="887.0" layoutY="14.0" prefHeight="30.0" prefWidth="41.0" text=" " />
       <JFXButton fx:id="logoutButton" layoutX="928.0" layoutY="12.0" prefHeight="30.0" prefWidth="41.0" text=" " />

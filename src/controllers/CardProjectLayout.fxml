@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpaneCard" prefHeight="117.0" prefWidth="290.0" style="-fx-background-radius: 10px; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CardProjectLayoutController">
+   <children>
+      <Pane fx:id="paneLayout" prefHeight="150.0" prefWidth="322.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <DropShadow radius="9.2575" width="18.03" />
+         </effect>
+         <children>
+            <Label fx:id="statusLabel" layoutX="51.0" layoutY="15.0" text="In Progress" textFill="#d0541a">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="typeLabel" layoutX="219.0" layoutY="15.0" text="Design" textFill="#a1aecc" />
+            <Label layoutX="211.0" layoutY="15.0" text="#" textFill="#a1aecc" />
+            <Label fx:id="nameLabel" layoutX="51.0" layoutY="40.0" text="Kairod Software">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="illustrationImage" fitHeight="47.0" fitWidth="37.0" layoutX="8.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/fourchecode.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="dateStartLabel" layoutX="14.0" layoutY="83.0" prefHeight="17.0" prefWidth="85.0" text="Design" textFill="#a1aecc" />
+            <Label fx:id="creator" layoutX="154.0" layoutY="83.0" prefHeight="17.0" prefWidth="85.0" style="-fx-alignment: center;" text="Mohamed" textFill="#d0541a">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="illustrationImage1" fitHeight="47.0" fitWidth="37.0" layoutX="237.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../pictures/man.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+   </children>
+</AnchorPane>

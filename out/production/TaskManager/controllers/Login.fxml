@@ -34,7 +34,7 @@
          </image>
       </ImageView>
       <PasswordField fx:id="passwordField" layoutX="91.0" layoutY="130.0" opacity="0.55" prefHeight="32.0" prefWidth="298.0" promptText="Mot de Passe" AnchorPane.bottomAnchor="113.0" AnchorPane.leftAnchor="91.0" AnchorPane.rightAnchor="107.0" AnchorPane.topAnchor="130.0" />
-      <Button fx:id="LoginButton" layoutX="91.0" layoutY="185.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #D9D9D9;" text="Enter">
+      <Button fx:id="loginButton" layoutX="91.0" layoutY="185.0" mnemonicParsing="false" onAction="#login" prefHeight="27.0" prefWidth="100.0" style="-fx-background-color: #D9D9D9;" text="Enter">
          <font>
             <Font name="MS Outlook" size="14.0" />
          </font>
