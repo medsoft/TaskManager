@@ -50,7 +50,10 @@ public class CardProjectLayoutController implements Initializable {
     private ImageView illustrationImage;
 
     @FXML
-    private Button tasksProject  ;
+    private Button tasksProjects  ;
+
+    @FXML
+    private Button moreDetails   ;
 
     @FXML
     private Label dateStartLabel;
@@ -124,7 +127,7 @@ public class CardProjectLayoutController implements Initializable {
                                 projectDetailController.setProjectDetailDescription(iprojectDao.get(this.project.getId()).getDescription());
                                 projectDetailController.setProjectDetailStartDate(iprojectDao.get(this.project.getId()).getStartDate().toString());
                                 projectDetailController.setProjectDetailEndDate(iprojectDao.get(this.project.getId()).getEndDate().toString());
-                                 projectDetailController.setProjectAuthor(iprojectDao.get(this.project.getId()).getUser().toString());
+                                projectDetailController.setProjectAuthor(iprojectDao.get(this.project.getId()).getUser().toString());
 
                         }catch (Exception e){
 

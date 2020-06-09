@@ -11,4 +11,5 @@ public interface Iproject {
     public  int delete (Project pr) ;
     public Project get (int id) ;
     public List<Project> getAll () ;
+
 }
