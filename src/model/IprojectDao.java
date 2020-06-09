@@ -3,6 +3,7 @@ package model;
 import beans.Project;
 import config.Database;
 import interfaces.Iproject;
+import javafx.beans.binding.When;
 
 import java.sql.ResultSet;
 import java.time.LocalDate;
@@ -49,7 +50,32 @@ public class IprojectDao implements Iproject {
 
     @Override
     public Project get(int id) {
-        return null;
+        Project project =  null ;
+        String sql  =  "SELECT * FROM projects WHERE  id  =  ? " ;
+
+       try {
+           database.initPrepare(sql);
+           database.getPstm().setInt(1,id);
+           ResultSet resultSet = database.executeSelect() ;
+           while (resultSet.next()){
+               project = new Project() ;
+               project.setId(resultSet.getInt(1));
+               project.setName(resultSet.getString(2));
+               project.setStartDate(LocalDate.parse(resultSet.getString(3)));
+               project.setEndDate(LocalDate.parse(resultSet.getString(4)));
+               project.setType(resultSet.getString(5));
+               project.setDescription(resultSet.getString(6));
+               project.setUser(new IuserDao().get(resultSet.getInt(7)));
+               project.setStatus(resultSet.getInt(8));
+               project.setIllustration(resultSet.getInt(9));
+           }
+
+
+       }catch (Exception e)
+       {
+           e.printStackTrace();
+       }
+        return project;
     }
 
     @Override

@@ -46,6 +46,7 @@ public class ProjectListController  implements Initializable {
                 Node node = fxmlLoader.load();
                 CardProjectLayoutController cardProjectLayoutController = fxmlLoader.getController();
                 cardProjectLayoutController.setProjectName(pro.getName());
+                cardProjectLayoutController.setProject(pro);
                 cardProjectLayoutController.setTypeLabel(pro.getType());
                 cardProjectLayoutController.setDateStartLabel(pro.getStartDate().toString());
                 cardProjectLayoutController.setCreator(pro.getUser().toString());

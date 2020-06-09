@@ -120,8 +120,8 @@ public class LoginController   implements Initializable {
                                 BoardController  boardController = fxmlLoader.getController() ;
                                 boardController.setNameOfUser(user.getUsername());
 
-                                TaskController taskController = fxmlLoader.getController() ;
-                                taskController.setNameOfUserInTask(user.getUsername());
+                                //TaskController taskController = fxmlLoader.getController() ;
+                                //taskController.setNameOfUserInTask(user.getUsername());
 
                             } catch (IOException e) {
                                 e.printStackTrace();

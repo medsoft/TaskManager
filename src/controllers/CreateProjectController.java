@@ -73,44 +73,49 @@ public class CreateProjectController  implements Initializable {
             }
         });
     }
-    public  void create (ActionEvent event)
+    public  void create ()
     {
+       createButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
+           @Override
+           public void handle(MouseEvent event) {
+               loader.setVisible(true);
+               String name  =  nameField.getText() ;
+               String type  =  typeField.getText() ;
+               String description = descriptionField.getText() ;
+               LocalDate startDate =  startDateField.getValue() ;
+               LocalDate endDate  =  endDateField.getValue() ;
 
-        String name  =  nameField.getText() ;
-        String type  =  typeField.getText() ;
-        String description = descriptionField.getText() ;
-        LocalDate startDate =  startDateField.getValue() ;
-        LocalDate endDate  =  endDateField.getValue() ;
-        loader.setVisible(true);
 
-        Iproject iproject = new  IprojectDao () ;
+               Iproject iproject = new  IprojectDao () ;
 
-        if (name.trim().equals("")||type.trim().equals("")||description.trim().equals("")){
-            NotifyMe notifyMe =  new NotifyMe() ;
-            notifyMe.errorChampsNotify();
-            loader.setVisible(false);
-        }else {
-            loader.setVisible(true);
-            IuserDao iuserDao =  new IuserDao() ;
-            Project project = new Project()  ;
-            project.setName(name);
-            project.setType(type);
-            project.setDescription(description);
-            project.setStartDate(startDate);
-            project.setEndDate(endDate);
-            project.setUser(sessionID);
-            int ok  = iproject.add(project) ;
-            if (ok !=  0 )
-            {
-                NotifyMe notifyMe  = new   NotifyMe () ;
-                notifyMe.projectAddedSuccessfully();
-                loader.setVisible(false);
-            }else {
-                NotifyMe notifyMe  = new   NotifyMe () ;
-                notifyMe.errorChampsNotify();
-                loader.setVisible(false);
-            }
-        }
+               if (name.trim().equals("")||type.trim().equals("")||description.trim().equals("")){
+                   NotifyMe notifyMe =  new NotifyMe() ;
+                   notifyMe.errorChampsNotify();
+                   loader.setVisible(false);
+               }else {
+                   loader.setVisible(true);
+                   IuserDao iuserDao =  new IuserDao() ;
+                   Project project = new Project()  ;
+                   project.setName(name);
+                   project.setType(type);
+                   project.setDescription(description);
+                   project.setStartDate(startDate);
+                   project.setEndDate(endDate);
+                   project.setUser(sessionID);
+                   int ok  = iproject.add(project) ;
+                   if (ok !=  0 )
+                   {
+                       NotifyMe notifyMe  = new   NotifyMe () ;
+                       notifyMe.projectAddedSuccessfully();
+                       loader.setVisible(false);
+                   }else {
+                       NotifyMe notifyMe  = new   NotifyMe () ;
+                       notifyMe.errorChampsNotify();
+                       loader.setVisible(false);
+                   }
+               }
+           }
+       });
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
